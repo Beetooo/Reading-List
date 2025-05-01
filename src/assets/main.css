@@ -1,0 +1,23 @@
+@import './base.css';
+
+#app {
+  max-width: 1440px;
+  margin: auto;
+  padding: 20px;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  padding: 3px;
+}
+h1{
+  font: Roboto 100;
+}
+select{
+  padding: 3px;
+}
+button{
+  padding: 3px;
+}
+
