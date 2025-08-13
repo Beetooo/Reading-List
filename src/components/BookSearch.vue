@@ -24,11 +24,11 @@
 
     async function searchBooks(query) {
         try {
-            const response = await fetch(`/api/books?q=${encodeURIComponent(query)}`)
-            const data = await response.json()
+            const res = await fetch(`/api/books?q=${encodeURIComponent(query)}`)
+            const data = JSON.parse(res);   
             books.value = data.items|| []  
-        } catch (error) {
-            error.value = err.message || 'An error occurred while searching for books'
+        } catch (err) {
+            console.error("Fetch error:", err);
             books.value = [] 
         }
     }
