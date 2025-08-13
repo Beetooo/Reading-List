@@ -24,11 +24,11 @@
 
     async function searchBooks(query) {
         try {
-            const res = await fetch(`/api/books?q=${encodeURIComponent(query)}`)
-            const data = JSON.parse(res);   
+            const res = await fetch(`https://books-proxy.betosantospyne.workers.dev?q=${query}`)
+            const data = await res.json() 
             books.value = data.items|| []  
-        } catch (err) {
-            console.error("Fetch error:", err);
+        } catch (error) {
+            error.value = err.message || 'An error occurred while searching for books'
             books.value = [] 
         }
     }
